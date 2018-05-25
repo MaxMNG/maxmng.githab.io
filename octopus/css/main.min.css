@@ -3331,6 +3331,13 @@ body {
   z-index: -1;
   margin: 0; }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+img {
+  max-width: 100%; }
+
 a, a:link, a:active, a:visited {
   text-decoration: none; }
 
@@ -3513,17 +3520,21 @@ h3 {
 
 .composition_image {
   float: right;
-  margin: auto; }
+  margin: auto;
+  position: relative; }
   .composition_image:after {
-    z-index: -1;
     content: "";
-    width: 100%;
-    height: 100%;
     display: block;
+    z-index: -1;
     position: absolute;
-    top: 0px;
+    top: -200px;
+    right: -5%;
+    width: 686px;
+    height: 580px;
     background-image: url(../img/decor_top.png);
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    -webkit-background-size: auto auto;
+            background-size: auto; }
 
 .bg_top {
   width: 100%;
@@ -3597,7 +3608,7 @@ footer {
           background-size: cover;
   background-position: center; }
 
-.footer_logos img:nth-child(1) {
+.footer_logos a:nth-child(1) {
   padding-right: 40px; }
 
 .copirights {
@@ -3689,11 +3700,11 @@ footer {
     font-size: 14px; }
   .sign_up {
     display: none; }
-  .footer_logos img:nth-child(1) {
+  .footer_logos a:nth-child(1) img {
     padding-right: 20px;
     height: auto;
     width: 160px; }
-  .footer_logos img:nth-child(2) {
+  .footer_logos a:nth-child(2) img {
     height: auto;
     width: 160px; }
   .phishing_image {
@@ -3707,11 +3718,22 @@ footer {
     padding: 6px 16px;
     margin-top: 4px; }
   .header.active {
-    height: 92px; } }
+    height: 92px; }
+  .composition_image:after {
+    display: none; }
+  .footer_logos a:nth-child(1) img {
+    padding-bottom: 20px;
+    padding-left: 15px;
+    width: 200px;
+    height: auto; }
+  .footer_logos a:nth-child(2) img {
+    height: auto;
+    width: 200px; } }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
-  /**/ }
+  .logo img {
+    width: 135px; } }
 
 /*==========  Mobile First  ==========*/
 /* Custom, iPhone Retina */
