@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Access Closed</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+	<style>
+		body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }
+	</style>
+
+	<script type="text/javascript">
+
+		//функция сворачивания и разворачивания элементов для Sky
+		function toggle(divId, linkName) {
+
+  	if(document.getElementById) {
+
+    	var divElem = document.getElementById(divId);
+    	var linkName = document.getElementById(linkName);
+
+    	if(divElem.className == "closed") {
+
+        divElem.className = "opened";
+        if (linkName != null) {
+        	linkName.innerText = 'Скрыть подробности';
+        }
+
+    	} else {
+
+        divElem.className = "closed";
+        if (linkName != null) {
+        	linkName.innerText = 'Показать подробности';
+        }
+    	}
+  	}
+
+		};
+
+		// вертикальное выравнивание на js
+		
+		// срабатывание выравнивания по таймеру
+		setInterval(vAlign,100);
+
+			function vAlign () {
+				var vCompos = document.getElementById("_off").offsetHeight;
+				var vScreen = document.body.scrollHeight;
+				var hScreen = document.body.scrollWidth;
+				var vComposMT = Math.round((vScreen - vCompos)/2);  
+
+					if (vComposMT >= 0 && hScreen > 768) {
+						document.getElementById("_off").style.marginTop = vComposMT + "px";
+
+					// для картинок домашнего типа нет отступа сверху, для других есть
+					} else if(document.getElementById("img").className == "home_block_img") {
+						document.getElementById("_off").style.marginTop = "0px";
+
+					} else {
+						document.getElementById("_off").style.marginTop = "40px";
+					}
+
+			};
+			
+	</script>
+
+</head>
+
+<body>
+
+	<div class="top_line"></div> <!-- нужна для верт. выравнивания -->
+	<div id="_off" class="composition">
+
+		<!-- img block icon -->
+		<div id="img" class="block_img"><img src="img/Browser.svg" alt="Close"></div> 
+
+		<!-- img home 
+		<div id="img" class="home_block_img"><img src="img/home_img.jpg" alt="Close"></div> -->
+
+		<!-- title -->
+		<div class="title"><h1>Проблема с браузером</h1></div>
+
+		<!-- description -->
+		<div class="description"><h2>Ваш браузер не сообщает контент фильтру на какой сайт вы пытаетесь получить досту. Ради вашей безопасности - данный сайт заблокирован</h2></div>
+
+		<!-- pay batton 
+		<div class="button"><a class="pay_button" onclick="javascript:history.back(); return false;">Купить фильтр на сайте</a></div> 
+
+		<!-- details standart 
+		<div class="details">
+
+			<a href="#" id="details_link" class="details_link" onclick="toggle('open_more', 'details_link'); return false" href="">Показать подробности</a>
+			
+			<div id="open_more" class="closed">
+
+			<div class="details_text">
+				<p>
+					Сайт pornhub.com заблокирован, потому что относится к категории "порнография". Если вы считаете, что сайт заблокирован ошибочно - 
+					<a href="#" id="open_form_link" class="open_form_link" onclick="toggle('open_form'); return false">напишите администратору сети</a>
+				</p>	
+			</div> 
+
+			<div id="open_form" class="closed">
+				<div class="feedback_form">
+					<form action="" method="post" autocomplete="on">
+						<textarea class="textarea" placeholder="Почему вы считаете что данный сайт не должен блокироваться?"  required="required" ></textarea>
+					<input type="submit" value="Отправить" />
+					
+					</form>				
+				</div>
+			</div>
+
+			</div>
+		</div> -->
+			
+		<!-- details simple -->
+		<div class="details">
+			<div class="details_text">
+				<p>
+					Для корректной работы фильтра рекомендуем вам установить последнюю версию браузера из числа рекомендуемых: Chrome, Opera, Mozila, Safari, Edge. 
+				</p>	
+			</div>
+		</div> 
+
+		<!-- back button -->
+		<div class="button"><a class="back_button" onclick="javascript:history.back(); return false;">Вернуться назад</a></div>
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</body>
+</html>
